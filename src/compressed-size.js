@@ -6,10 +6,10 @@ const getCompressedSize = (data, compression = 'gzip') => {
     case 'gzip':
       size = gzip.sync(data)
       break
-    case 'none':
     case 'brotli':
       size = require('brotli-size').sync(data)
       break
+    case 'none':
     default:
       size = Buffer.byteLength(data)
   }
